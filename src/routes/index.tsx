@@ -235,7 +235,7 @@ function Index() {
             className="transition-opacity hover:opacity-80"
           >
             <img
-              src={logo.url}
+              src="/ob-logo.png"
               alt="OB logo"
               width={1774}
               height={887}
