@@ -6,6 +6,13 @@ import fxImg from "@/assets/project-fx.jpg";
 import evImg from "@/assets/project-ev.jpg";
 import bookingImg from "@/assets/project-booking.jpg";
 import garmentsImg from "@/assets/project-garments.jpg";
+import thSocial from "@/assets/social-media-account-setup-branding.webp.asset.json";
+import thShopify from "@/assets/shopify-product-listings-catalog-cleanup.webp.asset.json";
+import thBengali from "@/assets/bengali-transcription-audio-annotation.webp.asset.json";
+import thAi from "@/assets/ai-image-generation-250-illustrations.webp.asset.json";
+import thCensus from "@/assets/historical-census-data-excel-cleanup.webp.asset.json";
+import thWp from "@/assets/wordpress-rank-math-seo.webp.asset.json";
+import thFin from "@/assets/financial-data-extraction-analysis.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,11 +38,10 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   { id: "about", label: "About" },
-  { id: "education", label: "Education" },
   { id: "skills", label: "Skills" },
+  { id: "education", label: "Education" },
   { id: "services", label: "Services" },
-  { id: "upwork", label: "Upwork" },
-  { id: "certifications", label: "Certifications" },
+  { id: "freelancing", label: "Freelancing" },
   { id: "feedback", label: "Feedback" },
   { id: "contact", label: "Contact" },
 ];
@@ -78,30 +84,83 @@ function SubHeading({ children }: { children: React.ReactNode }) {
   );
 }
 
-type Education = {
-  degree: string;
-  org: string;
-  years: string;
-  note?: string;
-};
-
-const EDUCATION: Education[] = [
+const EDUCATION = [
   {
-    degree: "MBA, Finance",
+    short: "NSU",
     org: "North South University (NSU)",
-    years: "2023 – 2026",
-    note: "Financial & cash-flow analysis, capital budgeting.",
+    degree: "Master of Business Administration (MBA)",
+    major: "Major - Finance",
+    years: "2023–2026",
   },
   {
-    degree: "B.Sc. in CSE (Information Systems)",
+    short: "AIUB",
     org: "American International University-Bangladesh (AIUB)",
-    years: "2018 – 2023",
+    degree: "B.Sc. in Computer Science and Engineering (CSE)",
+    major: "Major - Information Systems",
+    years: "2018–2023",
   },
   {
+    short: "MCU",
+    org: "Milestone College Uttara",
     degree: "Higher Secondary Certificate (HSC)",
-    org: "Milestone College",
-    years: "2015 – 2017",
+    major: "Group - Science",
+    years: "2017",
   },
+];
+
+const SKILLS = [
+  {
+    group: "Computer Science & Information Systems",
+    items: ["Information Systems", "Database Management & SQL", "Data Analysis", "Power BI & Data Visualization", "Microsoft Excel & Google Sheets", "IT & Computer Fundamentals"],
+  },
+  {
+    group: "Virtual Assistance & Business Support",
+    items: ["General Virtual Assistance", "Data Entry & Data Management", "Web Research", "CRM & Database Management", "Data Cleaning & Organization", "Financial Analysis & Reporting", "Bengali ↔ English Translation", "Bengali Transcription"],
+  },
+  {
+    group: "Digital Marketing",
+    items: ["Social Media Account Creation & Management", "Content Scheduling & Publishing", "On-Page SEO", "SEO Content Optimization", "Keyword Research", "Meta Titles & Descriptions", "Image Alt Text Optimization", "Internal Linking", "AI Image Generation"],
+  },
+  {
+    group: "E-commerce & Website Management",
+    items: ["Shopify & WooCommerce", "WordPress", "Product & Catalog Management", "Product Data Management", "CSV Import & Export", "Variants & Metafields", "Inventory Management", "Website Content Management"],
+  },
+];
+
+const TOOLS: { group: string; items: [string, string][] }[] = [
+  { group: "Productivity & Data", items: [["Microsoft Excel", "excel.cloud.microsoft"], ["Microsoft Word", "word.cloud.microsoft"], ["Microsoft PowerPoint", "powerpoint.cloud.microsoft"], ["Google Sheets", "sheets.google.com"], ["Google Docs", "docs.google.com"], ["Google Drive", "drive.google.com"], ["Power BI", "powerbi.microsoft.com"]] },
+  { group: "E-commerce & Web", items: [["Shopify", "shopify.com"], ["WooCommerce", "woocommerce.com"], ["WordPress", "wordpress.org"]] },
+  { group: "SEO & Marketing", items: [["Rank Math", "rankmath.com"], ["Yoast SEO", "yoast.com"], ["Ahrefs", "ahrefs.com"], ["Google Business Profile", "business.google.com"], ["Meta Business Suite", "business.facebook.com"], ["Mailchimp", "mailchimp.com"]] },
+  { group: "Social & Content", items: [["Facebook", "facebook.com"], ["Instagram", "instagram.com"], ["LinkedIn", "linkedin.com"], ["TikTok", "tiktok.com"], ["Pinterest", "pinterest.com"], ["YouTube", "youtube.com"], ["Threads", "threads.net"], ["X", "x.com"]] },
+  { group: "AI & Creative", items: [["ChatGPT Plus", "chatgpt.com"], ["Gemini Pro", "gemini.google.com"], ["Claude", "claude.ai"], ["Google Flow / Veo", "labs.google"], ["Canva", "canva.com"], ["CapCut", "capcut.com"]] },
+  { group: "VA & Workflow", items: [["Jotform", "jotform.com"], ["PDFfiller", "pdffiller.com"], ["Notion", "notion.so"], ["Slack", "slack.com"], ["ClickUp", "clickup.com"], ["Asana", "asana.com"], ["Trello", "trello.com"]] },
+];
+
+const SERVICES = [
+  { t: "Virtual Assistant & Data Support", d: "Reliable administrative support for businesses, including data management, research, CRM maintenance, document organization, and recurring operational tasks." },
+  { t: "E-commerce & Website Support", d: "Support for Shopify, WooCommerce, and WordPress businesses to keep product catalogs, website content, inventory information, and store data accurate and organized." },
+  { t: "Digital Marketing Support", d: "Execution-focused support for social media, SEO, content publishing, website optimization, and maintaining a consistent online presence." },
+  { t: "Bengali Translation & Transcription", d: "Bengali-English translation and transcription support for audio, video, documents, subtitles, proofreading, and language-data projects." },
+];
+
+const UP = "https://www.upwork.com/freelancers/~01898cd7b3eeeec67e?p=";
+
+const PROJECTS = [
+  { img: thSocial, title: "Social Media Account Setup & Profile Branding", url: UP + "2100783316556517376", skills: ["Digital Marketing", "Social Media Account Setup", "Social Media Management"], desc: "Built and branded a consistent social media presence for a lifestyle brand across Facebook, Instagram, LinkedIn, Pinterest, TikTok, YouTube, Threads, and X. Added the client’s logos, cover images, business details, website links, and platform-specific bios to maintain a consistent brand identity across all platforms. Organized the account information and prepared screenshots and handover details for the client. The attached portfolio shows the profiles and branding completed during the project." },
+  { img: thShopify, title: "Shopify Product Listings & Catalog Data Cleanup", url: UP + "2100774454229536768", skills: ["Shopify", "Product Audit", "Product Listings", "Virtual Assistance", "Digital Marketing"], desc: "Supported catalog cleanup for 600+ active and draft products in a Shopify store. The project began with linking product images and expanded to checking listing statuses and correcting product heights, dimensions, and package weights. Uploaded visual assets and updated product information to improve catalog consistency. After an initial walkthrough, I completed the expanded scope independently and delivered ahead of the client’s deadline." },
+  { img: thBengali, title: "Bengali Transcription, Audio Annotation & Quality Review", url: UP + "2053354638211764224", skills: ["Translation", "Bengali to English Translation", "Data Labeling", "Bengali", "Data Annotation"], desc: "Provided Bengali transcription, audio annotation, and quality review across projects with Skyfall AI and Processor.ai. Listened to Bengali recordings, prepared transcripts, added timestamps and speaker labels, and reviewed completed work for errors. Followed project-specific guidelines for transcription accuracy, audio segmentation, and labeling." },
+  { img: thAi, title: "AI Image Generation: 250 Custom Illustrations", url: UP + "2087331226470473728", skills: ["AI Image Generation", "AI Image Editing", "AI Image Generator"], desc: "Created 250 custom AI-generated illustrations for Patronus Energy LLC using Gemini Nano Banana Pro and ChatGPT Plus. Developed prompts based on the client’s requirements to produce high-resolution images and delivered the project within a tight deadline. This portfolio includes two selected illustrations from the completed project, showing industrial environments and detailed scenes created for the client." },
+  { img: thCensus, title: "Historical Census Data Extraction & Excel Cleanup", url: UP + "1923081214315855872", skills: ["Data Entry", "Microsoft Excel", "Data Extraction", "Online Research", "Virtual Assistance"], desc: "Extracted historical demographic and healthcare data from archival census reports and organized it into structured Excel spreadsheets. Recorded hospital counts, bed counts, locations, years, and administrative categories. Standardized the data layout and checked entries across columns to identify inconsistencies." },
+  { img: thWp, title: "WordPress Blog Publishing & Rank Math On-Page SEO", url: UP + "1837043452588658688", skills: ["On-Page SEO", "Blog Writing", "WordPress"], desc: "Formatted and published blog posts for a home appliance website using WordPress and Rank Math. Organized supplied drafts with headings, images, and media embeds. Updated focus keywords, meta titles, meta descriptions, URL slugs, image alt text, and relevant internal and external links. The attached samples show published content and the WordPress dashboard, including a post with a Rank Math score of 100/100." },
+  { img: thFin, title: "Financial Data Extraction & Multi-Year Analysis", url: UP + "1923079171475898368", skills: ["Virtual Assistance", "Data Entry", "Financial Report", "Data Extraction", "Online Research"], desc: "Collected public school district financial and state aid data from the Texas Education Agency’s online reports. Organized figures in Excel by district code and reporting year, calculated averages across multiple years, and applied consistent formatting. Checked entries against source reports and reviewed calculations for errors. The attached samples show the source portal and the spreadsheet prepared for comparison and reporting." },
+];
+
+const REVIEWS = [
+  { t: "AI Image Designer", q: ["Working with Owishik was an excellent experience. He recently created a technical AI-generated image for our company, and the result was absolutely fantastic.", "The image looks 100% natural, realistic, and highly professional. He clearly has an excellent understanding of AI image generation and knows how to achieve a polished result without making the image look artificial.", "We are extremely happy with the final result and would definitely recommend Owishik to anyone looking for high-quality AI-generated visuals.", "Excellent work, Owishik. Thank you!"] },
+  { t: "Outlook Email & CFPB Account Creation", q: ["Exceeded my expectations! His attention to detail, communication, and professionalism were top-notch. The final delivery was even better than I imagined. I’ll be hiring him again. Highly recommended to anyone looking for quality and reliability."] },
+  { t: "Bengali Language Transcription", q: ["Thanks you so much, it was a great collaboration. All the best."] },
+  { t: "Marketing Promotion Help", q: ["This freelancer finished the project quickly and according to the documentation. Thank you!"] },
+  { t: "Account Creation for 300 websites", q: ["Job well done and great experience"] },
 ];
 
 function Index() {
@@ -299,138 +358,45 @@ function Index() {
 
       <div className="rule mx-auto max-w-6xl" />
 
-      {/* EDUCATION */}
-      <Section id="education" eyebrow="Education" title="Academic foundation">
-        <SubHeading>Academic Background</SubHeading>
-        <div className="grid gap-4 md:grid-cols-3">
-          {EDUCATION.map((e) => (
-            <div
-              key={e.degree}
-              className="card-surface p-6 hover:-translate-y-1"
-            >
-              <p className="text-sm font-semibold text-primary">{e.years}</p>
-              <h3 className="mt-2 font-display text-lg font-semibold text-foreground">
-                {e.degree}
-              </h3>
-              <p className="mt-1 text-sm text-muted-foreground">{e.org}</p>
-              {e.note && (
-                <p className="mt-3 text-sm text-muted-foreground">{e.note}</p>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <SubHeading>Thesis</SubHeading>
-        <article className="card-surface group grid overflow-hidden md:grid-cols-2">
-          <div className="overflow-hidden">
-            <img
-              src={THESIS.img}
-              alt={THESIS.title}
-              loading="lazy"
-              width={1024}
-              height={768}
-              className="aspect-[4/3] h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-          <div className="flex flex-col justify-center p-6 md:p-10">
-            <span className="eyebrow">Thesis</span>
-            <h3 className="mt-3 font-display text-2xl font-semibold text-foreground">
-              {THESIS.title}
-            </h3>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              {THESIS.desc}
-            </p>
-          </div>
-        </article>
-
-        <SubHeading>Academic Projects</SubHeading>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {ACADEMIC_PROJECTS.map((p) => (
-            <article
-              key={p.title}
-              className="card-surface group flex flex-col overflow-hidden hover:-translate-y-1"
-            >
-              <div className="overflow-hidden">
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  loading="lazy"
-                  width={1024}
-                  height={768}
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="font-display text-base font-semibold leading-snug text-foreground">
-                  {p.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {p.desc}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      {/* SKILLS */}
-      <Section id="skills" eyebrow="Skills" title="Core skills & tools" alt>
-        <div className="grid gap-6 md:grid-cols-2">
-          {[
-            {
-              group: "Business Operations",
-              items: [
-                "Workflow Coordination",
-                "Data Management",
-                "Process Documentation",
-                "Reporting",
-                "Quality Assurance",
-                "Client Communication",
-              ],
-            },
-            {
-              group: "IT & Systems Support",
-              items: [
-                "Hardware/Software Troubleshooting",
-                "User Support",
-                "System Maintenance",
-                "Data Extraction",
-                "Database Fundamentals",
-              ],
-            },
-            {
-              group: "Platforms & Productivity",
-              items: [
-                "Microsoft Excel, Word, PowerPoint",
-                "Google Workspace",
-                "Airtable",
-                "Monday.com",
-                "Jotform",
-                "Shopify",
-                "WordPress",
-              ],
-            },
-            {
-              group: "Technical Knowledge",
-              items: [
-                "MySQL",
-                "C",
-                "C++",
-                "C#",
-                "Java",
-                "Data Analysis",
-                "Financial & Cash Flow Analysis",
-              ],
-            },
-          ].map((g) => (
+      {/* PROFESSIONAL SKILLS */}
+      <Section id="skills" eyebrow="Skills" title="Professional Skills">
+        <div className="grid gap-5 md:grid-cols-2">
+          {SKILLS.map((g) => (
             <div key={g.group} className="card-surface p-6">
               <h3 className="font-display text-lg font-semibold text-foreground">
                 {g.group}
               </h3>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <ul className="mt-4 grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
                 {g.items.map((s) => (
-                  <span key={s} className="chip">
-                    {s}
+                  <li key={s} className="flex gap-2.5">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    <span>{s}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <SubHeading>Tools &amp; Platforms</SubHeading>
+        <div className="grid gap-5 md:grid-cols-2">
+          {TOOLS.map((c) => (
+            <div key={c.group} className="card-surface p-6">
+              <h4 className="font-display text-base font-semibold text-foreground">
+                {c.group}
+              </h4>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {c.items.map(([name, domain]) => (
+                  <span key={name} className="chip">
+                    <img
+                      src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
+                      alt=""
+                      width={16}
+                      height={16}
+                      loading="lazy"
+                      className="h-4 w-4 shrink-0 rounded-sm"
+                    />
+                    {name}
                   </span>
                 ))}
               </div>
@@ -439,35 +405,89 @@ function Index() {
         </div>
       </Section>
 
+      {/* EDUCATION & CERTIFICATIONS */}
+      <Section
+        id="education"
+        eyebrow="Education"
+        title="Education & Certifications"
+        alt
+      >
+        <SubHeading>Academic Qualifications</SubHeading>
+        <div className="grid gap-4 md:grid-cols-3">
+          {EDUCATION.map((e) => (
+            <div key={e.org} className="card-surface flex gap-4 p-6">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/30 bg-secondary font-display text-sm font-bold text-primary">
+                {e.short}
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-primary">{e.years}</p>
+                <h3 className="mt-1 font-display text-base font-semibold text-foreground">
+                  {e.org}
+                </h3>
+                <p className="mt-1 text-sm text-foreground/85">{e.degree}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{e.major}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <SubHeading>Certifications</SubHeading>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="card-surface p-6">
+            <p className="text-sm font-semibold text-copper">
+              Mar 2024 – Oct 2024
+            </p>
+            <h3 className="mt-2 font-display text-lg font-semibold text-foreground">
+              Professional Digital Marketing Certification
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Creative IT Institute · Grade A+
+            </p>
+            <a
+              href="https://certificate.citsmp.com/?certificate_id=U+DM-24030311"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              View Certificate
+              <ArrowIcon />
+            </a>
+          </div>
+        </div>
+
+        <SubHeading>Academic Thesis &amp; Projects</SubHeading>
+        <div className="grid gap-4 md:grid-cols-2">
+          {[{ ...THESIS, tag: "Thesis" }, ...ACADEMIC_PROJECTS.map((p) => ({ ...p, tag: "Project" }))].map((p) => (
+            <article
+              key={p.title}
+              className={`card-surface flex gap-4 overflow-hidden p-4 ${p.tag === "Thesis" ? "md:col-span-2" : ""}`}
+            >
+              <img
+                src={p.img}
+                alt={p.title}
+                loading="lazy"
+                width={1024}
+                height={768}
+                className="aspect-[4/3] w-24 shrink-0 rounded-lg object-cover sm:w-32"
+              />
+              <div className="min-w-0">
+                <span className="eyebrow">{p.tag}</span>
+                <h3 className="mt-1 font-display text-base font-semibold leading-snug text-foreground">
+                  {p.title}
+                </h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {p.desc}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       {/* SERVICES */}
-      <Section id="services" eyebrow="Services" title="What I do">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              t: "Virtual Assistance",
-              d: "High-volume data entry, online research, data extraction, spreadsheet cleanup, file organization, and recurring administrative workflows with close attention to accuracy.",
-            },
-            {
-              t: "Digital Marketing",
-              d: "Shopify & WordPress product listings, inventory updates, image management, SEO metadata, and content formatting that keep storefronts sharp.",
-            },
-            {
-              t: "Data Management",
-              d: "Structured data in Excel, Google Sheets, Airtable, Monday.com, and Jotform — with quality checks, troubleshooting, and clean deliverables.",
-            },
-            {
-              t: "IT & Systems Support",
-              d: "Hardware and software troubleshooting, user support, system maintenance, and database fundamentals to keep operations running.",
-            },
-            {
-              t: "Business Operations",
-              d: "Workflow coordination, process documentation, reporting, and client communication that align teams and move work forward.",
-            },
-            {
-              t: "Financial Analysis",
-              d: "Cash-flow analysis, capital budgeting, and reporting drawing on an MBA in Finance — translating numbers into decisions.",
-            },
-          ].map((s) => (
+      <Section id="services" eyebrow="Services" title="What I Do">
+        <div className="grid gap-5 md:grid-cols-2">
+          {SERVICES.map((s) => (
             <div
               key={s.t}
               className="card-surface p-6 transition-transform hover:-translate-y-1"
@@ -488,101 +508,80 @@ function Index() {
         </div>
       </Section>
 
-      {/* UPWORK ACHIEVEMENTS */}
+      {/* FREELANCING PROFILE */}
       <Section
-        id="upwork"
-        eyebrow="Upwork Achievements"
-        title="A track record on Upwork"
-      >
-        <div className="grid gap-4 md:grid-cols-4">
-          {[
-            { stat: "30+", label: "Projects delivered" },
-            { stat: "100%", label: "Job Success Score" },
-            { stat: "Top Rated", label: "Freelancer status" },
-            { stat: "Global", label: "International clients" },
-          ].map((s) => (
-            <div key={s.label} className="card-surface p-6 text-center">
-              <p className="font-display text-4xl font-bold text-emerald">
-                {s.stat}
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-6 card-surface p-6">
-          <h3 className="font-display text-lg font-semibold text-foreground">
-            Freelance Virtual Assistant & Digital Marketing Specialist
-          </h3>
-          <p className="mt-1 text-sm font-medium text-copper">
-            Upwork · Remote · Dec 2024 – Present
-          </p>
-          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            {[
-              "Completed 30+ projects for international clients while maintaining Top Rated status and a 100% Job Success Score.",
-              "Managed high-volume data entry, online research, data extraction, spreadsheet cleanup, file organization, and recurring administrative workflows with close attention to accuracy.",
-              "Managed Shopify and WordPress product listings, inventory updates, images, SEO metadata, and content formatting.",
-              "Used Excel, Google Sheets, Airtable, Monday.com, Jotform, Google Workspace, and AI tools to organize information, troubleshoot, run quality checks, and coordinate deliverables.",
-            ].map((b) => (
-              <li key={b} className="flex gap-2.5">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-copper" />
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
-
-      {/* CERTIFICATIONS */}
-      <Section
-        id="certifications"
-        eyebrow="Certifications"
-        title="Credentials"
+        id="freelancing"
+        eyebrow="Top-Rated Freelancer"
+        title="Freelancing Profile"
         alt
       >
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="card-surface p-6">
-            <p className="text-sm font-semibold text-copper">
-              Mar 2024 – Oct 2024
-            </p>
-            <h3 className="mt-2 font-display text-lg font-semibold text-foreground">
-              Professional Digital Marketing Certification
-            </h3>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Creative IT Institute · Grade A+
-            </p>
-            <a
-              href="https://certificate.citsmp.com/?certificate_id=U+DM-24030311"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-            >
-              View Certificate
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                className="h-3.5 w-3.5"
+        <div className="card-surface flex flex-col items-start justify-between gap-5 p-6 md:flex-row md:items-center">
+          <div className="flex items-center gap-4">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+              <BrandIcon name="upwork" />
+            </span>
+            <div>
+              <p className="font-display text-xl font-semibold text-foreground">
+                Top-Rated Freelancer on Upwork
+              </p>
+              <p className="text-sm text-muted-foreground">
+                100% Job Success Score · 30+ projects for international clients
+              </p>
+            </div>
+          </div>
+          <a
+            href={UPWORK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+          >
+            View My Upwork Profile
+            <ArrowIcon />
+          </a>
+        </div>
+
+        <SubHeading>Completed Projects</SubHeading>
+        <div className="grid gap-5 md:grid-cols-2">
+          {PROJECTS.map((p) => (
+            <article key={p.title} className="card-surface flex flex-col p-5">
+              <div className="overflow-hidden rounded-lg bg-secondary">
+                <img
+                  src={p.img.url}
+                  alt={`${p.title} project thumbnail`}
+                  loading="lazy"
+                  decoding="async"
+                  width={960}
+                  height={720}
+                  className="aspect-[4/3] w-full object-contain"
+                />
+              </div>
+              <h3 className="mt-4 font-display text-lg font-semibold leading-snug text-foreground">
+                {p.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {p.desc}
+              </p>
+              <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-foreground/70">
+                Skills &amp; Deliverables
+              </p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {p.skills.map((s) => (
+                  <span key={s} className="chip">
+                    {s}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
               >
-                <path d="M7 17 17 7M9 7h8v8" />
-              </svg>
-            </a>
-          </div>
-          <div className="card-surface p-6">
-            <p className="text-sm font-semibold text-copper">Extracurricular</p>
-            <h3 className="mt-2 font-display text-lg font-semibold text-foreground">
-              Leadership & Memberships
-            </h3>
-            <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-              <li>First Joint Convener — PUSAG</li>
-              <li>Founding Member — EKOJ Jagorone</li>
-              <li>Executive — NSU MBA Club</li>
-              <li>Member — AIUB Computer Club</li>
-            </ul>
-          </div>
+                Project Portfolio
+                <ArrowIcon />
+              </a>
+            </article>
+          ))}
         </div>
       </Section>
 
@@ -590,42 +589,29 @@ function Index() {
       <Section
         id="feedback"
         eyebrow="Client Feedback"
-        title="What clients say"
+        title="Some Examples of What My Clients Say"
       >
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            {
-              q: "Delivered exactly what we needed, ahead of schedule, and with spotless accuracy. Our go-to for data cleanup.",
-              a: "E-commerce client",
-            },
-            {
-              q: "Organized hundreds of product listings on Shopify without a single error. Professional and easy to work with.",
-              a: "Storefront owner",
-            },
-            {
-              q: "Clear communication and reliable recurring workflows. The 100% JSS is well earned.",
-              a: "Agency partner",
-            },
-          ].map((f, i) => (
-            <figure key={i} className="card-surface p-6">
-              <div className="mb-3 flex gap-1 text-copper">
-                {"★★★★★".split("").map((s, idx) => (
-                  <span key={idx}>{s}</span>
-                ))}
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {REVIEWS.map((f) => (
+            <figure key={f.t} className="card-surface flex flex-col p-6">
+              <h3 className="font-display text-base font-semibold text-foreground">
+                {f.t}
+              </h3>
+              <div className="mt-2 mb-3 flex gap-1 text-copper" aria-label="5 stars">
+                ★★★★★
               </div>
-              <blockquote className="font-display text-lg italic leading-snug text-foreground">
-                “{f.q}”
+              <blockquote className="space-y-3 text-sm italic leading-relaxed text-muted-foreground">
+                {f.q.map((para, i) => (
+                  <p key={i}>
+                    {i === 0 ? "“" : ""}
+                    {para}
+                    {i === f.q.length - 1 ? "”" : ""}
+                  </p>
+                ))}
               </blockquote>
-              <figcaption className="mt-3 text-sm text-muted-foreground">
-                — {f.a}
-              </figcaption>
             </figure>
           ))}
         </div>
-        <p className="mt-4 text-xs text-muted-foreground">
-          Representative of the recurring themes across 30+ completed Upwork
-          engagements. Full reviews available on the Upwork profile.
-        </p>
       </Section>
 
       {/* CONTACT */}
@@ -642,9 +628,8 @@ function Index() {
                 <a
                   key={item.label}
                   href={item.href}
-                  {...(item.external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="card-surface group flex items-center gap-3 px-4 py-3 transition-all hover:-translate-y-0.5 hover:border-primary/50"
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary text-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
@@ -653,20 +638,9 @@ function Index() {
                   <span className="text-sm font-semibold tracking-wide text-foreground">
                     {item.label}
                   </span>
-                  {item.external ? (
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      className="ml-auto h-3.5 w-3.5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    >
-                      <path d="M7 17 17 7M9 7h8v8" />
-                    </svg>
-                  ) : null}
+                  <span className="ml-auto text-muted-foreground">
+                    <ArrowIcon />
+                  </span>
                 </a>
               ))}
             </div>
@@ -763,36 +737,32 @@ function Section({
 const WHATSAPP_URL =
   "https://wa.me/8801757702567?text=Hi%20Owishik%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20with%20you.";
 
-const CONTACTS: {
-  label: string;
-  icon: string;
-  href: string;
-  external: boolean;
-}[] = [
-  {
-    label: "Email Me",
-    icon: "gmail",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=owishikofficial@gmail.com&su=Project%20Inquiry",
-    external: true,
-  },
+const UPWORK_URL = "https://www.upwork.com/freelancers/owishik";
+
+function ArrowIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className="h-3.5 w-3.5"
+    >
+      <path d="M7 17 17 7M9 7h8v8" />
+    </svg>
+  );
+}
+
+const CONTACTS = [
   {
     label: "LinkedIn",
     icon: "linkedin",
     href: "https://www.linkedin.com/in/owishikbiswas/",
-    external: true,
   },
-  {
-    label: "Upwork",
-    icon: "upwork",
-    href: "https://www.upwork.com/freelancers/owishik",
-    external: true,
-  },
-  {
-    label: "WhatsApp",
-    icon: "whatsapp",
-    href: WHATSAPP_URL,
-    external: true,
-  },
+  { label: "WhatsApp", icon: "whatsapp", href: WHATSAPP_URL },
 ];
 
 const BRAND_PATHS: Record<string, string> = {
