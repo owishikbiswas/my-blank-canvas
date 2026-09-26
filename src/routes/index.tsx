@@ -17,7 +17,7 @@ import thFin from "@/assets/financial-data-extraction-analysis.webp.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Owishik Biswas — Portfolio" },
+      { title: "Owishik Biswas | Portfolio" },
       {
         name: "description",
         content:
