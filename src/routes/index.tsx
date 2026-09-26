@@ -548,14 +548,14 @@ function Index() {
             <article key={p.title} className="card-surface flex flex-col p-5">
               <div className="overflow-hidden rounded-lg bg-secondary">
                 <img
-                  src={p.img.url}
-                  alt={`${p.title} project thumbnail`}
-                  loading="lazy"
-                  decoding="async"
-                  width={960}
-                  height={720}
-                  className="aspect-[4/3] w-full object-contain"
-                />
+  src={p.img}
+  alt={`${p.title} project thumbnail`}
+  loading="lazy"
+  decoding="async"
+  width={960}
+  height={720}
+  className="aspect-[4/3] w-full object-contain"
+/>
               </div>
               <h3 className="mt-4 font-display text-lg font-semibold leading-snug text-foreground">
                 {p.title}
