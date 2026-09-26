@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
         content:
           "Owishik Biswas — Virtual Assistant & Digital Marketing Specialist. Top Rated on Upwork with a 100% Job Success Score across 30+ projects.",
       },
-      { property: "og:title", content: "Owishik Biswas — Portfolio" },
+      { property: "og:title", content: "Owishik Biswas | Portfolio" },
       {
         property: "og:description",
         content:
