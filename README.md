@@ -1,12 +1,12 @@
-# My Blank Canvas
+# My Portfolio
 
-Create a basic blank portfolio website.
+I want to make my personal portfolio. This is my resume. take necessary details and put them into the relatable sections. Photo/About Me → Education → Skills → Services → Featured Projects → Upwork Achievements → Certifications → Client Feedback → Contact
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/0b70cc01-8de8-4007-9440-d8bf1afb8e36).
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/809aee41-47fa-4d89-bd4f-619ba4dd6ff3).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
