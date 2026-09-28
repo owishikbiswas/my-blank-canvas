@@ -192,36 +192,36 @@ function Index() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!formRef.current) return;
+ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  if (!formRef.current) return;
 
-    // Verify CDN script has loaded
-    const emailjsInstance = (window as unknown as { emailjs?: { sendForm: Function } }).emailjs;
+  setIsSubmitting(true);
 
-    if (!emailjsInstance) {
-      alert("Email service is still loading. Please check your internet connection or try again in a few seconds.");
-      return;
+  try {
+    const formData = new FormData(formRef.current);
+
+    const response = await fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(formData as any).toString(),
+    });
+
+    if (!response.ok) {
+      throw new Error("Form submission failed");
     }
 
-    setIsSubmitting(true);
-
-    try {
-      await emailjsInstance.sendForm(
-        "service_xbnes0w",
-        "template_ng0aw75",
-        formRef.current,
-        "ENAO8rwvM8ziPREzS"
-      );
-      alert("Message sent successfully!");
-      formRef.current.reset();
-    } catch (error) {
-      console.error("Failed to send email:", error);
-      alert("Failed to send message. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    alert("Message sent successfully!");
+    formRef.current.reset();
+  } catch (error) {
+    console.error("Failed to send message:", error);
+    alert("Failed to send message. Please try again later.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -648,10 +648,14 @@ function Index() {
             </div>
           </div>
           <form
-            ref={formRef}
-            className="card-surface p-6"
-            onSubmit={handleContactSubmit}
-          >
+  ref={formRef}
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  className="card-surface p-6"
+  onSubmit={handleContactSubmit}
+>
+  <input type="hidden" name="form-name" value="contact" />
             <div className="grid gap-4">
               <Field
                 name="name"
